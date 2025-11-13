@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Company Homepage - Navigation Bar</title>
+
+  <style>
+    
+    body {
+      margin: 0;
+      font-family: "Poppins", Arial, sans-serif;
+      background-color: #f5f6fa;
+    }
+
+    
+    nav {
+      background: linear-gradient(90deg, #003366, #00509e);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 15px 50px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    
+    .logo {
+      color: white;
+      font-size: 1.5em;
+      font-weight: bold;
+      letter-spacing: 1px;
+
+    }
+
+   
+    .nav-links a {
+      display: inline-block;
+      color: white;
+      text-decoration: none;
+      padding: 10px 18px;
+      margin: 0 8px;
+      font-size: 1.1em;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 3px;
+      background-color: #ffeb3b;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-links a:hover {
+      color: #ffeb3b;
+    }
+
+    .logo:hover {
+      color: #ffeb3b;
+    }
+
+    
+    @media (max-width: 600px) {
+      nav {
+        flex-direction: column;
+        text-align: center;
+        padding: 20px;
+      }
+      .nav-links a {
+        display: block;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+ 
+  <nav>
+    <div class="logo">RAIDON COMPANY LDT</div>
+    <div class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      

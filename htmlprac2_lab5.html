@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>University Admission Form</title>
+  <meta name="author" content="AR Raid">
+  <meta name="description" content="Online Admission Form for new university students.">
+  <meta name="keywords" content="university admission form, student registration, online form">
+</head>
+
+<body>
+
+  <h1>AIUB Admission Form</h1>
+  <p>Please fill out the form below to apply for admission.</p>
+
+  
+  <form action="#" method="post" enctype="multipart/form-data">
+
+    <!-- Personal Information Section -->
+    <fieldset>
+      <legend><b>Personal Information</b></legend>
+
+      <label for="fname">First Name:</label><br>
+      <input type="text" id="fname" name="fname" maxlength="30" required><br><br>
+
+      <label for="lname">Last Name:</label><br>
+      <input type="text" id="lname" name="lname" maxlength="30" required><br><br>
+
+      <label for="dob">Date of Birth:</label><br>
+      <input type="date" id="dob" name="dob" required><br><br>
+
+      <label>Gender:</label><br>
+      <input type="radio" id="male" name="gender" value="Male" required>
+      <label for="male">Male</label><br>
+      <input type="radio" id="female" name="gender" value="Female">
+      <label for="female">Female</label><br>
+      <input type="radio" id="other" name="gender" value="Other">
+      <label for="other">Other</label><br><br>
+
+      <label for="email">Email Address:</label><br>
+      <input type="email" id="email" name="email" required><br><br>
+
+      <label for="phone">Phone Number:</label><br>
+      <input type="text" id="phone" name="phone" maxlength="15" required><br><br>
+    </fieldset>
+
+    <br>
+
+    <!-- Academic Information Section -->
+    <fieldset>
+      <legend><b>Academic Information</b></legend>
+
+      <label for="hsc">Highest Qualification:</label><br>
+      <input type="text" id="hsc" name="hsc" maxlength="50" required><br><br>
+
+      <label for="institution">Institution Name:</label><br>
+      <input type="text" id="institution" name="institution" maxlength="100" required><br><br>
+
+      <label for="gpa">GPA/Grade:</label><br>
+      <input type="text" id="gpa" name="gpa" maxlength="10" required><br><br>
+
+      <label for="department">Preferred Department:</label><br>
+      <select id="department" name="department" required>
+        <option value="">--Select Department--</option>
+        <option value="CSE">Computer Science & Engineering</option>
+        <option value="EEE">Electrical & Electronic Engineering</option>
+        <option value="BBA">Business Administration</option>
+        <option value="ENG">English</option>
+        <option value="LAW">Law</option>
+      </select><br><br>
+
+      <label>Interests (you can choose multiple):</label><br>
+      <input type="checkbox" id="ai" name="interests" value="AI">
+      <label for="ai">Artificial Intelligence</label><br>
+      <input type="checkbox" id="robotics" name="interests" value="Robotics">
+      <label for="robotics">Robotics</label><br>
+      <input type="checkbox" id="web" name="interests" value="Web Development">
+      <label for="web">Web Development</label><br>
+      <input type="checkbox" id="network" name="interests" value="Networking">
+      <label for="network">Networking</label><br><br>
+
+      <label for="admission-date">Preferred Admission Date:</label><br>
+      <input type="date" id="admission-date" name="admission-date" required><br><br>
+    </fieldset>
+
+    <br>
+
+    <!-- Document Upload Section -->
+    <fieldset>
+      <legend><b>Document Upload</b></legend>
+
+      <label for="photo">Upload Your Photo:</label><br>
+      <input type="file" id="photo" name="photo" accept="image/*" required><br><br>
+
+      <label for="transcript">Upload Academic Transcript:</label><br>
+      <input type="file" id="transcript" name="transcript" accept=".pdf,.jpg,.png" required><br><br>
+    </fieldset>
+
+    <br>
+
+    <!-- Buttons -->
+    <fieldset>
+      <legend><b>Form Actions</b></legend>
+      <input type="submit" value="Submit Application">
+      <input type="reset" value="Reset Form">
+    </fieldset>
+
+  </form>
+
+</body>
+</html>
