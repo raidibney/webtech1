@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student List Manager</title>
+
+    <style>
+        
+        body {
+            font-family: "Poppins", Arial, sans-serif;
+            margin: 0;
+            padding: 40px;
+            background: linear-gradient(to right, #6a11cb, #2575fc);
+            color: #222;
+        }
+
+        h2 {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 600;
+            color: white;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 12px rgba(0,0,0,0.4);
+        }
+
+      
+        #student-form {
+            background: rgba(255, 255, 255, 0.2);
+            width: 450px;
+            margin: auto;
+            padding: 20px;
+            backdrop-filter: blur(8px);
+            border-radius: 16px;
+            box-shadow: 0px 8px 25px rgba(0,0,0,0.2);
+            display: flex;
+            justify-content: center;
+        }
+
+        input {
+            padding: 10px;
+            width: 60%;
+            border-radius: 10px;
+            border: none;
+            outline: none;
+            font-size: 16px;
+        }
+
+        /* ---- BUTTONS ---- */
+        button {
+            padding: 10px 16px;
+            margin-left: 5px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            font-size: 14px;
+            transition: 0.3s;
+            font-weight: 600;
+        }
+
+        #add-btn {
+            background: #00e676;
+            color: black;
+        }
+        #add-btn:hover {
+            background: #00c853;
+        }
+
+        .btn-edit {
+            background: #2979ff;
+            color: white;
+        }
+        .btn-edit:hover {
+            background: #1565c0;
+        }
+
+        .btn-delete {
+            background: #ff1744;
+            color: white;
+        }
+        .btn-delete:hover {
+            background: #c51162;
+        }
+
+        #highlight-btn {
+            background: #ff9100;
+            color: white;
+            display: block;
+            margin: 20px auto;
+        }
+        #highlight-btn:hover {
+            background: #ff6d00;
+        }
+
+        
+        ul {
+            list-style: none;
+            padding: 0;
+            max-width: 500px;
+            margin: 20px auto;
+        }
+
+        .student-item {
+            background: rgba(255, 255, 255, 0.25);
+            padding: 14px;
+            margin: 10px 0;
+            border-radius: 16px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            backdrop-filter: blur(6px);
+            transition: 0.3s;
+            transform: translateY(0px);
+            box-shadow: 0px 6px 18px rgba(0,0,0,0.1);
+        }
+
+        .student-item:hover {
+            background: rgba(255, 255, 255, 0.35);
+            transform: translateY(-3px);
+            box-shadow: 0px 12px 24px rgba(0,0,0,0.15);
+        }
+
+        /* ---- HIGHLIGHT MODE ---- */
+        .highlight {
+            background: yellow !important;
+            color: black;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Student List Manager</h2>
+
+    
+    <form id="student-form">
+        <input type="text" id="student-name" placeholder="Enter student name">
+        <button type="submit" id="add-btn">Add</button>
+    </form>
+
+    
+    <ul id="student-list"></ul>
+
+    
+  <!-- FORM  HERE THE JAVA SCRIPT -->
+
+
+    <script>
+       
+        document.getElementById('student-form').addEventListener('submit', addStudent);
+
+    
+        function addStudent(event) {
+            event.preventDefault();
+
+            let studentName = document.getElementById('student-name').value;
+
+            if (studentName === '') {
+                alert('Please enter a student name');
+                return;
+            }
+
+            let li = document.createElement('li');
+            li.classList.add('student-item');
+
+            let span = document.createElement('span');
+            span.textContent = studentName;
+
+            let editButton = document.createElement('button');
+            editButton.textContent = 'Edit';
+            editButton.classList.add('btn-edit');
+            editButton.addEventListener('click', function () {
+                editStudent(li, span);
+            });
+
+            let deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Delete';
+            deleteButton.classList.add('btn-delete');
+            deleteButton.addEventListener('click', function () {
+                deleteStudent(li);
+            });
+
+            li.appendChild(span);
+            li.appendChild(editButton);
+            li.appendChild(deleteButton);
+
+            document.getElementById('student-list').appendChild(li);
+
+            document.getElementById('student-name').value = '';
+        }
+
+        
+        function deleteStudent(studentElement) {
+            studentElement.remove();
+        }
+
+       
+        function editStudent(studentElement, studentNameElement) {
+            let newName = prompt('Enter the new name:', studentNameElement.textContent);
+
+            if (newName !== null && newName !== '') {
+                studentNameElement.textContent = newName;
+            }
+        }
+
+       
+        function changeListStyle() {
+            let students = document.querySelectorAll('.student-item');
+
+            students.forEach(student => {
+                student.classList.toggle('highlight');
+            });
+        }
+
+      
+        let changeStyleButton = document.createElement('button');
+        changeStyleButton.textContent = 'Highlight Students';
+        changeStyleButton.id = 'highlight-btn';
+        changeStyleButton.addEventListener('click', changeListStyle);
+
+        document.body.appendChild(changeStyleButton);
+    </script>
+
+</body>
+</html>
