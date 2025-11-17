@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Library Management System</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 8px 15px;
+            cursor: pointer;
+        }
+
+        table {
+            width: 60%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            padding: 10px;
+            border: 1px solid #333;
+            text-align: left;
+        }
+
+        th {
+            background: #ddd;
+        }
+
+        .old-book {
+            background-color: lightgray;
+        }
+
+        .new-book {
+            background-color: lightgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Library Management System</h2>
+
+    <input type="text" id="title" placeholder="Enter Book Title">
+    <input type="text" id="year" placeholder="Enter Publication Year">
+    <button onclick="addBook()">Add Book</button>
+
+    <table id="bookTable">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+
+        <tbody></tbody>
+    </table>
+
+    <script>
+        function addBook() {
+            const titleInput = document.getElementById("title");
+            const yearInput = document.getElementById("year");
+
+            const title = titleInput.value.trim();
+            const year = yearInput.value.trim();
+
+            const currentYear = new Date().getFullYear();
+
+            
+            const titleRegex = /^[A-Za-z]+$/;
+
+            if (!titleRegex.test(title)) {
+                alert("Invalid Title! Only alphabetic characters allowed, no spaces.");
+                return;
+            }
+
+            
+            const yearRegex = /^[0-9]{4}$/;
+
+            if (!yearRegex.test(year) || year < 1900 || year > currentYear) {
+                alert("Invalid Year! Enter a 4-digit year between 1900 and " + currentYear);
+                return;
+            }
+
+            
+            const tableBody = document.getElementById("bookTable").querySelector("tbody");
+            const newRow = document.createElement("tr");
+
+            
+            if (year < 2000) {
+                newRow.classList.add("old-book");
+            } else {
+                newRow.classList.add("new-book");
+            }
+
+            newRow.innerHTML = `
+                <td>${title}</td>
+                <td>${year}</td>
+            `;
+
+            tableBody.appendChild(newRow);
+
+          
+            titleInput.value = "";
+            yearInput.value = "";
+        }
+    </script>
+
+</body>
+</html>

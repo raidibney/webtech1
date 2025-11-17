@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>User Profile Card</title>
+
+    <style>
+        .card {
+            width: 300px;
+            padding: 20px;
+            background-color: #f5f5f5;
+            border: 2px solid #ccc;
+            border-radius: 12px;
+            box-shadow: 2px 2px 10px rgba(0,0,0,0.2);
+            position: relative;
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .profile-img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 3px solid #555;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #2ecc71;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 8px;
+            font-size: 12px;
+            font-weight: bold;
+        }
+
+        .username {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .bio {
+            font-size: 14px;
+            margin-top: 8px;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="card">
+        <div class="badge">Online</div>
+
+        <img src="https://via.placeholder.com/100" class="profile-img" alt="User Photo">
+
+        <div class="username">John Doe</div>
+
+        <div class="bio">
+            Web developer and tech enthusiast. Loves coding, coffee, and creativity.
+        </div>
+    </div>
+
+</body>
+</html>
